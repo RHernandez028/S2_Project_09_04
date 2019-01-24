@@ -12,7 +12,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Purchase</title>
+        <title>Place an Order</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="mc_styles.css" />
         <link rel="stylesheet" href="mc_froms.css" />
@@ -21,14 +21,17 @@
     <body>
         <header>
             <img src="mc_logo.png" alt="logo" />
+            <h1>Place an order</h1>
         </header>
         
+        <!-- The user data will be procesed on the linked website and will be posted on the server and not in the url -->
         <form class="cForm" action=" http://www.mill_computers.com/orders/process.cgi" method="post">
             <fieldset class="custIfo">
                 <legend>Customer Information</legend>
 
+                <!-- Here all the customer infromation will be required since it is essencail when make an order and/or purchases  -->
                 <div class="cInfo">
-                    <label for="fName">First Namme</label>
+                    <label for="fName">First Name</label>
                     <input type="text" name="fname" id="fName" required/>
                 </div>
 
@@ -52,6 +55,7 @@
                     <input type="text" name="state" id="state" required/>
                 </div>
 
+                <!-- Here the inputed patterns are to validat the users' input while the user is typing, this helps redcie the ammount of work the server is reqired to do. -->
                 <div class="cInfo">
                         <label for="zip">Zip Code</label>
                         <input type="text" name="zip" id="zip" required placeholder="nnnnn (-nnnnn)" pattern="^\d{5}(-\d{4})?$" />
@@ -66,6 +70,7 @@
             <fieldset class="options">
                 <legend>Upgrades and Options</legend>
 
+                <!-- In the following label/selection list pairs the customer will pick upgrades and/options to improver their order. -->
                 <div class="options">
                     <label for="pSpeed">Processor Speed</label>
                     <select name="pspeed" id="pSpeed">
@@ -77,7 +82,7 @@
 
                 <div class="options">
                     <label for="memory">Memory</label>
-                    <select name="memory" id="memory">
+                    <select name="mem" id="memory">
                         <option value="1 GB">1 GB</option>
                         <option value="2 GB">2 GB</option>
                         <option value="4 GB">4 GB</option>
@@ -87,29 +92,74 @@
 
                 <div class="options">
                     <label for="mSize">Monitor Size</label>
-                    <select name="msize" id="mSize">
+                    <select name="monitor" id="mSize">
                         <option value="15">15"</option>
                         <option value="17">17"</option>
                         <option value="19">19"</option>
                         <option value="21">21"</option>
                     </select>
-
-                    <!-- <label for="mSize">Monitor Size</label>
-                    15"
-                    <input type="range" value="15" step="2" min="15" max="21" />
-                    21" -->
                 </div>
 
                 <div class="options">
                     <label for="hDrive">Hard Drive</label>
-                    <select name="hdrive" id="hDrive">
+                    <select name="hd" id="hDrive">
                         <option value="240 GB">240 GB</option>
                         <option value="500 GB">500 GB</option>
                         <option value="750 GB">750 GB</option>
                         <option value="1 TB"> TB</option>
                     </select>
                 </div>
+
+                <!-- The next few divs with the class of options have radio buttons becasue if built properly they can ansure that only one option is selected at a time. With the following option it maeks sense that they can eother have the compent or not but not both at the same time. -->
+                <div class="options">
+                    <label>DVD Burner</label>
+                    <fieldset class="dvdB">
+                        <label for="dvdYes">Yes</label>
+                        <input type="radio" id="dvdYes" name="dvd" />
+                        <label for="dvdNo">No</label>
+                        <input type="radio" id="dvdNo" name="dvd" />
+                    </fieldset>
+                </div>
+
+                <div class="options">
+                    <label>Tuner Card</label>
+                    <fieldset class="tCard">
+                        <label for="cardYes">Yes</label>
+                        <input type="radio" id="cardYes" name="mCard" value="yes" />
+                        <label for="cardNo">No</label>
+                        <input type="radio" id="cardNo" name="mCard" value="no"/>
+                    </fieldset>
+                </div>
+
+                <div class="options">
+                    <label>Media Card Reader</label>
+                    <fieldset class="cReader">
+                        <label for="readerYes">Yes</label>
+                        <input type="radio" id="dvdYes" name="cReader" />
+                        <label for="readerNo">No</label>
+                        <input type="radio" id="dvdNo" name="cReader" />
+                    </fieldset>
+                </div>
+
+                <!-- Here the user/customer can request for a warrenty on their puchased order -->
+                <input type="checkbox" name="warranty" id="warranty">
+                <label for="warranty">Would you like a 24-month extended warranty?</label>
             </fieldset>
+
+            <!-- Here the customer can request for addition items, information, or leave comments regaurding their order -->
+            <fieldset class="additional">
+                <legend>Additional Requests</legend>
+
+                <label for="requests">If you have and extra comments and/or requests, please the here:</label>
+                <textarea name="cRequests" id="requests"></textarea>
+            </fieldset>
+            
+            <div class="button">
+                <!-- Each input is a button that either submits the customer's order resets their form or redirects them to contacting the "store" -->
+                <input type="submit" value="Submit Order" />
+                <input type="reset" value="Cancel Order" />
+                <input type="button" value="Contact Me" />
+            </div>
         </form>
         
 

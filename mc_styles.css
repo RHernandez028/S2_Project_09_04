@@ -6,33 +6,59 @@
 
     */
 
-html {
-    background: linear-gradient( rgb(78, 135, 249), white);
-    height: 100%
-}
-
 body {
     display: block;
-    width: 80%;
+    min-width: 320px;
+    max-width: 1020px;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
     height: 100%;
+    background: linear-gradient( rgb(78, 135, 249), white);
+    font-size: 18px;
 }
 
-header {
+header > img {
     width: 100%
 }
 
-form#cForm{
-    display: -webkit-flex;
-    display: flex;
-    flex-flow: row wrap;
+form {
+    display: block;
+    float: left;
+    width: 100%;
 }
 
-form#cForm> fieldset {
-    display: -webkit-flex;  
-    display: flex;
-    -webkit-flex: 1 1 300px;
-    flex: 1 1 300px;
+form > fieldset {
+    border: 3px solid black;
+    border-radius: 15px;
 }
 
+form > fieldset.custInfo{
+    display: block;
+    float: left;
+    width: 45%;
+    margin: 5px;
+    height: 325px;
+
+}
+
+form > fieldset.options {
+
+    display: block;
+    float: right;
+    width: 45%;
+    margin: 5px;
+    height: 325px;
+
+}
+
+form > fieldset.additional {
+    display: block;
+    clear: both;
+    height: 20%;
+}
+
+div.button {
+    display: block;
+    clear: both;
+}
